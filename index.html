@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="smooth-scroll">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030508" />
+
+  <!-- SEO & Meta -->
+  <title>Compatíveis — Transforme seu Relacionamento</title>
+  <meta name="description"
+    content="Metodologia exclusiva de terapia de casal. Mais de 3.960 horas de atendimento transformando vidas e restaurando relacionamentos em crise." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- GSAP & Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/683A3924.jpg" />
+</head>
+
+<body>
+
+  <!-- Loader Cinematográfico -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <h2 class="loader-text">Compatíveis</h2>
+      <div class="loader-line-wrapper">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container navbar-container">
+      <a href="#inicio" class="navbar-logo" aria-label="Página inicial">
+        Compat<span class="logo-accent">í</span>veis
+      </a>
+      <nav class="navbar-menu" id="navMenu" aria-label="Menu de Navegação Principal">
+        <div class="nav-links">
+          <a href="#estudo-de-caso" class="nav-link"><span class="link-text">O Caso</span></a>
+          <a href="#sobre" class="nav-link"><span class="link-text">O Márcio</span></a>
+          <a href="#metodologia" class="nav-link"><span class="link-text">O Método</span></a>
+          <a href="#programa" class="nav-link"><span class="link-text">O Programa</span></a>
+          <a href="#depoimentos" class="nav-link"><span class="link-text">Relatos</span></a>
+        </div>
+        <a href="https://form.respondi.app/eW9PPMu8" target="_blank" rel="noopener" class="btn btn-outline nav-cta">
+          Aplicar Agora
+        </a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Alternar Menu" aria-expanded="false" aria-controls="navMenu">
+        <div class="burger-lines"></div>
+      </button>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+  <!-- Hero Section (Editorial Split) -->
+  <section class="hero-editorial" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-split-container">
+
+      <!-- Left: Typography Focus -->
+      <div class="hero-left">
+        <div class="hero-content-inner">
+          <div class="hero-badge gsap-fade">
+            <span class="badge-dot"></span> Método Exclusivo
+          </div>
+
+          <h1 id="hero-title" class="hero-title-sculptural">
+            <span class="text-line gsap-text-line">Seu casamento</span>
+            <span class="text-line gsap-text-line">chegou no limite?</span>
+            <span class="text-line gsap-text-line highlight-gold">Ele pode ser salvo.</span>
+          </h1>
+
+          <p class="hero-desc gsap-fade">
+            Terapia comportamental profunda que já reconstruiu mais de <strong class="text-gold-pure">145
+              relacionamentos</strong>. Se você ainda quer lutar, este é o caminho definitivo.
+          </p>
+
+          <div class="hero-actions gsap-fade">
+            <a href="https://form.respondi.app/eW9PPMu8" target="_blank" rel="noopener"
+              class="btn btn-solid-gold magnetic-btn">
+              <span class="magnetic-content">
+                Salvar meu Casamento <i class="ph ph-arrow-up-right"></i>
+              </span>
+              <div class="btn-aura"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image with Mask -->
+      <div class="hero-right gsap-img-reveal">
+        <div class="hero-img-wrapper">
+          <img src="assets/683A3924.jpg" alt="Márcio - Compatíveis" class="hero-img" loading="eager" />
+          <div class="hero-gradient-mask"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll-down gsap-fade">
+      <div class="mouse-icon"></div>
+      <span>Role para descobrir</span>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar" aria-label="Estatísticas">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item gsap-fade-up">
+          <span class="stat-number" data-counter="3960" data-suffix="+">0</span>
+          <span class="stat-label">Horas de Consultório</span>
+        </div>
+        <div class="stat-item gsap-fade-up">
+          <span class="stat-number" data-counter="145" data-suffix="+">0</span>
+          <span class="stat-label">Membros Ativos</span>
+        </div>
+        <div class="stat-item gsap-fade-up">
+          <span class="stat-number" data-counter="24" data-suffix="">0</span>
+          <span class="stat-label">Encontros Ao Vivo/Ano</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Section (Bento Box) -->
+  <section class="pain-section section" id="dor" aria-labelledby="pain-title">
+    <div class="container">
+      <div class="section-header center gsap-fade-up">
+        <div class="section-badge"><i class="ph ph-target"></i> Você se identifica?</div>
+        <h2 id="pain-title">A crise sempre deixa <em class="italic-highlight">rastros.</em></h2>
+        <p>A maioria dos casais experimenta os mesmos padrões. Reconhece algum?</p>
+      </div>
+
+      <!-- Bento Box Grid -->
+      <div class="bento-grid">
+        <div class="bento-item bento-large gsap-stagger glass-panel">
+          <i class="ph ph-chats-teardrop bento-icon text-gold-pure"></i>
+          <h4>Comunicação Destruída</h4>
+          <p>As conversas acabam sempre em discussão. Parece que vocês falam línguas diferentes e não se entendem mais.
+            O silêncio vira arma.</p>
+        </div>
+
+        <div class="bento-item gsap-stagger glass-panel">
+          <i class="ph ph-snowflake bento-icon text-gold-pure"></i>
+          <h4>Distância Emocional</h4>
+          <p>Vivem na mesma casa como se fossem apenas colegas de quarto.</p>
+        </div>
+
+        <div class="bento-item gsap-stagger glass-panel">
+          <i class="ph ph-arrows-clockwise bento-icon text-gold-pure"></i>
+          <h4>Ciclo que se repete</h4>
+          <p>Brigam, fazem as pazes, brigam de novo pelos mesmos motivos.</p>
+        </div>
+
+        <div class="bento-item bento-wide gsap-stagger glass-panel">
+          <div class="bento-wide-content">
+            <i class="ph ph-fire-simple bento-icon text-gold-pure"></i>
+            <div>
+              <h4>Reações Automáticas e Medo</h4>
+              <p>Pensamentos sobre o fim do casamento aparecem com frequência. Você reage sem pensar, depois se
+                arrepende, e sente que perdeu o controle das próprias emoções dentro de casa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study: Daniela -->
+  <section class="case-study-section section" id="estudo-de-caso" aria-labelledby="case-study-title">
+    <div class="container">
+      <div class="case-study-wrapper glass-panel gsap-fade-up">
+        <div class="case-study-content">
+          <div class="section-badge"><i class="ph ph-star"></i> Prova Social</div>
+          <h2 id="case-study-title">A Transformação de <br /><em class="italic-highlight">Daniela & Jean</em></h2>
+          <p>Assista ao relato emocionante de como a metodologia foi capaz de reconstruir um casamento que parecia não
+            ter mais volta.</p>
+        </div>
+
+        <div class="case-study-video">
+          <div class="custom-video-player"
+            data-src="assets/videos/{aliança} Prova social daniela PARTE 1 (com trilha).mp4">
+            <div class="video-overlay" role="button" aria-label="Reproduzir vídeo" tabindex="0">
+              <img src="assets/683A3874.jpg" alt="Capa Daniela" class="video-poster" />
+              <div class="play-button magnetic-wrap"><span class="magnetic-target"><i
+                    class="ph-fill ph-play"></i></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section (Editorial Masonry) -->
+  <section class="about-section section" id="sobre" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Single Hero Editorial Image -->
+        <div class="about-gallery single-hero" aria-hidden="true">
+          <div class="gallery-col col-1">
+            <img src="assets/683A3927.jpg" alt="Márcio" class="parallax-img" />
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-badge gsap-fade-up"><i class="ph ph-user"></i> Autoridade</div>
+          <h2 id="about-title" class="gsap-fade-up">O Terapeuta que lê <em class="italic-highlight">comportamentos.</em>
+          </h2>
+
+          <p class="about-text gsap-fade-up">
+            Márcio é especialista em relacionamentos e formado em Análise Corporal. Ele não fica apenas no conselho
+            romântico; ele diagnostica a raiz comportamental exata que está sabotando a relação.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-item gsap-stagger glass-panel">
+              <i class="ph ph-brain highlight-icon text-gold-pure"></i>
+              <span>Ciência Comportamental</span>
+            </div>
+            <div class="highlight-item gsap-stagger glass-panel">
+              <i class="ph ph-heart highlight-icon text-gold-pure"></i>
+              <span>3.000+ Casais Atendidos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology 3Rs -->
+  <section class="methodology-section section" id="metodologia" aria-labelledby="method-title">
+    <div class="container">
+      <div class="section-header center gsap-fade-up">
+        <div class="section-badge"><i class="ph ph-compass"></i> O Caminho</div>
+        <h2 id="method-title">A Metodologia dos <em class="italic-highlight">3 Rs</em></h2>
+      </div>
+
+      <!-- Vertical Premium Timeline -->
+      <div class="vertical-timeline gsap-fade-up">
+        <div class="vt-progress-line">
+          <div class="vt-progress-fill"></div>
+        </div>
+
+        <div class="vt-item">
+          <div class="vt-marker"><i class="ph ph-eye"></i></div>
+          <div class="vt-content">
+            <span class="vt-step">Passo 01</span>
+            <h3>Revelar</h3>
+            <p>Enxergamos os padrões invisíveis que destroem a relação sem que percebam.</p>
+          </div>
+        </div>
+
+        <div class="vt-item">
+          <div class="vt-marker"><i class="ph ph-lightning"></i></div>
+          <div class="vt-content">
+            <span class="vt-step">Passo 02</span>
+            <h3>Romper</h3>
+            <p>A "Semana da Desintoxicação". Pare de reagir automaticamente aos gatilhos.</p>
+          </div>
+        </div>
+
+        <div class="vt-item">
+          <div class="vt-marker"><i class="ph ph-plant"></i></div>
+          <div class="vt-content">
+            <span class="vt-step">Passo 03</span>
+            <h3>Reconstruir</h3>
+            <p>Técnicas de comunicação não-violenta e blindagem da aliança para o futuro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Grid -->
+  <section class="program-section section" id="programa" aria-labelledby="program-title">
+    <div class="container">
+      <div class="section-header center gsap-fade-up">
+        <div class="section-badge"><i class="ph ph-package"></i> Entregáveis</div>
+        <h2 id="program-title">Acesso <em class="italic-highlight">Completo</em></h2>
+      </div>
+
+      <div class="program-grid">
+        <div class="program-card gsap-stagger-program glass-panel">
+          <div class="card-glow"></div>
+          <div class="program-card-icon"><i class="ph ph-video-camera"></i></div>
+          <h4>5 Trilhas de Transformação</h4>
+          <p>Conteúdos gravados metodicamente para aplicar diretamente na relação.</p>
+        </div>
+        <div class="program-card gsap-stagger-program glass-panel">
+          <div class="card-glow"></div>
+          <div class="program-card-icon"><i class="ph ph-users-three"></i></div>
+          <h4>24 Encontros Ao Vivo</h4>
+          <p>Dois encontros mensais com Márcio para tirar dúvidas e receber orientações.</p>
+        </div>
+        <div class="program-card gsap-stagger-program glass-panel">
+          <div class="card-glow"></div>
+          <div class="program-card-icon"><i class="ph ph-shield-check"></i></div>
+          <h4>Comunidade Segura</h4>
+          <p>Plataforma Ciclo com grupos segmentados: homens, mulheres, solteiros e casados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Swiper Testimonials Video Gallery -->
+  <section class="testimonials-section section" id="depoimentos" aria-labelledby="testim-title">
+    <div class="container">
+      <div class="section-header center gsap-fade-up">
+        <div class="section-badge"><i class="ph ph-video"></i> Histórias Reais</div>
+        <h2 id="testim-title">Vidas <em class="italic-highlight">Restauradas</em></h2>
+      </div>
+
+      <!-- Swiper -->
+      <div class="swiper testimonials-swiper gsap-fade-up">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="testimonial-video-card glass-panel">
+              <div class="custom-video-player mini" data-src="assets/videos/Depoimento aline.mp4">
+                <video src="assets/videos/Depoimento aline.mp4" class="video-poster" preload="metadata" muted
+                  playsinline></video>
+                <div class="video-overlay" role="button" aria-label="Assistir Aline" tabindex="0">
+                  <div class="play-button magnetic-wrap"><span class="magnetic-target"><i
+                        class="ph-fill ph-play"></i></span></div>
+                  <div class="testim-name">Aline</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="testimonial-video-card glass-panel">
+              <div class="custom-video-player mini" data-src="assets/videos/Depoimento Thiago e rafaela.mp4">
+                <video src="assets/videos/Depoimento Thiago e rafaela.mp4" class="video-poster" preload="metadata" muted
+                  playsinline></video>
+                <div class="video-overlay" role="button" aria-label="Assistir Thiago e Rafaela" tabindex="0">
+                  <div class="play-button magnetic-wrap"><span class="magnetic-target"><i
+                        class="ph-fill ph-play"></i></span></div>
+                  <div class="testim-name">Thiago & Rafaela</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="testimonial-video-card glass-panel">
+              <div class="custom-video-player mini" data-src="assets/videos/Depoimento Marcos rodrigues.mp4">
+                <video src="assets/videos/Depoimento Marcos rodrigues.mp4" class="video-poster" preload="metadata" muted
+                  playsinline></video>
+                <div class="video-overlay" role="button" aria-label="Assistir Marcos" tabindex="0">
+                  <div class="play-button magnetic-wrap"><span class="magnetic-target"><i
+                        class="ph-fill ph-play"></i></span></div>
+                  <div class="testim-name">Marcos Rodrigues</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <div class="testimonial-video-card glass-panel">
+              <div class="custom-video-player mini" data-src="assets/videos/Depoimento thaís coelho.mp4">
+                <video src="assets/videos/Depoimento thaís coelho.mp4" class="video-poster" preload="metadata" muted
+                  playsinline></video>
+                <div class="video-overlay" role="button" aria-label="Assistir Thaís" tabindex="0">
+                  <div class="play-button magnetic-wrap"><span class="magnetic-target"><i
+                        class="ph-fill ph-play"></i></span></div>
+                  <div class="testim-name">Thaís Coelho</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Swiper Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-nav-wrapper">
+          <div class="swiper-button-prev magnetic-wrap"><span class="magnetic-target"><i
+                class="ph ph-arrow-left"></i></span></div>
+          <div class="swiper-button-next magnetic-wrap"><span class="magnetic-target"><i
+                class="ph ph-arrow-right"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content glass-panel">
+        <h2 id="cta-title" class="gsap-fade-up">A decisão de <em class="italic-highlight">recomeçar</em></h2>
+        <p class="gsap-fade-up">A metodologia completa está disponível por um valor especial.</p>
+
+        <div class="cta-price gsap-fade-up">
+          <div class="price-label">Investimento</div>
+          <div class="price-value">R$ 2.000</div>
+        </div>
+
+        <div class="gsap-fade-up">
+          <a href="https://form.respondi.app/eW9PPMu8" target="_blank" rel="noopener"
+            class="btn btn-primary btn-lg magnetic-wrap">
+            <span class="magnetic-target">Garantir Minha Vaga <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <div class="guarantee-badge gsap-fade-up">
+          <i class="ph-fill ph-seal-check text-gold-pure"></i>
+          Garantia incondicional de 7 dias
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Compat<span class="logo-accent">í</span>veis</div>
+        <p class="footer-copy">© 2026. Design Premium.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
