@@ -210,6 +210,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .navbar-logo {
@@ -1400,13 +1401,18 @@ video {
     justify-content: flex-start;
     align-items: center;
     padding: 8rem 2.5rem 3rem;
-    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s step-end;
     z-index: 1000;
     counter-reset: menu-counter;
     overflow-y: auto;
+    visibility: hidden;
+    pointer-events: none;
   }
   .navbar-menu.active {
     right: 0;
+    visibility: visible;
+    pointer-events: auto;
+    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s step-start;
   }
   .nav-links {
     flex-direction: column;
