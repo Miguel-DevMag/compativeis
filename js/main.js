@@ -400,16 +400,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".custom-video-player").forEach((player) => {
     const overlay = player.querySelector(".video-overlay");
 
-    // Preferir o src declarado no <video><source> interno (por exemplo links do Google Drive)
+    // Preferir o src declarado em data-src, pois ele representa o arquivo correto de depoimento
+    const dataSrc = player.dataset.src ? player.dataset.src.trim() : "";
     const nestedSourceEl = player.querySelector("video source");
     const nestedSrc = nestedSourceEl ? nestedSourceEl.getAttribute("src") : "";
-    const dataSrc = player.dataset.src ? player.dataset.src.trim() : "";
 
     // Se houver qualquer fonte (data-src ou nested src), habilitar o clique
-    if (overlay && (nestedSrc || dataSrc)) {
+    if (overlay && (dataSrc || nestedSrc)) {
       overlay.addEventListener("click", () => {
-        // Preferir nestedSrc (normalmente links externos como docs.google), cair para dataSrc caso contrário
-        const src = nestedSrc || dataSrc;
+        // Priorizar data-src para garantir os vídeos exatos da seção
+        const src = dataSrc || nestedSrc;
 
         const isGoogleDrive =
           src &&
