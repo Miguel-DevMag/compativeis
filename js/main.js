@@ -410,6 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.addEventListener("click", () => {
         // Priorizar data-src para garantir os vídeos exatos da seção
         const src = dataSrc || nestedSrc;
+        const safeSrc = encodeURI(src);
 
         const isGoogleDrive =
           src &&
@@ -432,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const iframe = document.createElement("iframe");
           iframe.src = fileId
             ? `https://drive.google.com/file/d/${fileId}/preview`
-            : src;
+            : safeSrc;
           iframe.style.width = "100%";
           iframe.style.height = "100%";
           iframe.style.border = "none";
@@ -457,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
           video.preload = "auto";
 
           const source = document.createElement("source");
-          source.src = src;
+          source.src = safeSrc;
           source.type = "video/mp4";
           video.appendChild(source);
 
