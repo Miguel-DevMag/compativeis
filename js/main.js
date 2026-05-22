@@ -399,50 +399,72 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ── Custom Video Player Lazy Load ── */
   document.querySelectorAll(".custom-video-player").forEach((player) => {
     const overlay = player.querySelector(".video-overlay");
-    const src = player.dataset.src;
 
-    if (overlay && src) {
+    // Preferir o src declarado no <video><source> interno (por exemplo links do Google Drive)
+    const nestedSourceEl = player.querySelector("video source");
+    const nestedSrc = nestedSourceEl ? nestedSourceEl.getAttribute("src") : "";
+    const dataSrc = player.dataset.src ? player.dataset.src.trim() : "";
+
+    // Se houver qualquer fonte (data-src ou nested src), habilitar o clique
+    if (overlay && (nestedSrc || dataSrc)) {
       overlay.addEventListener("click", () => {
-        // Detectar se é URL do Google Drive
+        // Preferir nestedSrc (normalmente links externos como docs.google), cair para dataSrc caso contrário
+        const src = nestedSrc || dataSrc;
+
         const isGoogleDrive =
-          src.includes("drive.google.com") || src.includes("docs.google.com");
+          src &&
+          (src.includes("drive.google.com") || src.includes("docs.google.com"));
 
         if (isGoogleDrive) {
-          // Extrair ID do arquivo
+          // Extrair ID do arquivo (diversos formatos possíveis)
           let fileId = "";
           if (src.includes("id=")) {
             fileId = src.split("id=")[1].split("&")[0];
           } else if (src.includes("/d/")) {
             fileId = src.split("/d/")[1].split("/")[0];
+          } else {
+            // tentativa genérica
+            const m = src.match(/[-_0-9A-Za-z]{20,}/);
+            if (m) fileId = m[0];
           }
 
-          // Criar iframe para Google Drive
+          // Se não encontrarmos ID, tentar usar o src direto como iframe src
           const iframe = document.createElement("iframe");
-          iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+          iframe.src = fileId
+            ? `https://drive.google.com/file/d/${fileId}/preview`
+            : src;
           iframe.style.width = "100%";
           iframe.style.height = "100%";
           iframe.style.border = "none";
-          iframe.style.borderRadius = "20px";
+          iframe.style.borderRadius = "16px";
           iframe.style.display = "block";
-          iframe.setAttribute("allow", "autoplay");
-          iframe.setAttribute("allowFullscreen", "true");
-          iframe.setAttribute("title", "Vídeo Compatíveis");
+          iframe.setAttribute(
+            "allow",
+            "autoplay; encrypted-media; fullscreen; picture-in-picture",
+          );
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.setAttribute("title", "Vídeo Depoimento");
 
           player.innerHTML = "";
           player.appendChild(iframe);
         } else {
-          // Para vídeos locais, usar elemento <video>
+          // Para vídeos locais ou URLs diretas, criar <video> com <source>
           const video = document.createElement("video");
-          video.src = src;
           video.controls = true;
           video.autoplay = true;
-          video.setAttribute("playsinline", "");
-          video.setAttribute("crossorigin", "anonymous");
-          video.setAttribute("preload", "metadata");
+          video.playsInline = true;
+          video.crossOrigin = "anonymous";
+          video.preload = "auto";
+
+          const source = document.createElement("source");
+          source.src = src;
+          source.type = "video/mp4";
+          video.appendChild(source);
 
           player.innerHTML = "";
           player.appendChild(video);
-          video.play();
+          // tentar tocar, ignorar rejeição por autoplay
+          video.play().catch(() => {});
         }
       });
 
