@@ -715,11 +715,26 @@ p {
   align-items: center;
 }
 
+.custom-video-player-study {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 460px;
+  max-width: 440px;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.2),
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(212, 175, 55, 0.1);
+}
+
 .custom-video-player {
   width: 100%;
   aspect-ratio: 16 / 9;
   min-height: 460px;
-  max-width: 460px;
+  max-width: 1080px;
   background: #000;
   border-radius: 20px;
   overflow: hidden;
@@ -802,9 +817,9 @@ p {
 }
 
 .custom-video-player.mini .play-button {
-  width: 50px;
-  height: 50px;
-  font-size: 1.2rem;
+  width: 90px;
+  height: 90px;
+  font-size: 2.5rem;
 }
 
 .video-overlay:hover .play-button {
@@ -1080,13 +1095,13 @@ video {
 
 /* Swiper Testimonials */
 .testimonials-swiper {
-  margin-top: 4rem;
-  padding-bottom: 5rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
   overflow: visible !important;
 }
 
 .swiper-slide {
-  width: 140px;
+  width: 100%;
   transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0.3;
   transform: scale(0.85);
@@ -1752,7 +1767,7 @@ video {
 .classes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: 1.2rem;
   margin: 4rem 0 3rem 0;
 }
 
