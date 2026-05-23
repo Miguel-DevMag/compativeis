@@ -769,6 +769,15 @@ p {
   background: #000;
 }
 
+.custom-video-player-study iframe {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.custom-video-player-study.playing iframe {
+  opacity: 1;
+}
+
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -794,8 +803,8 @@ p {
 }
 
 .video-overlay:hover .video-poster {
-  opacity: 0.5;
-  transform: scale(1.02);
+  opacity: 0.8;
+  transform: none;
 }
 
 .play-button {
@@ -832,6 +841,20 @@ p {
     0 20px 60px rgba(212, 175, 55, 0.4);
   transform: translate(-50%, -50%) scale(1.15);
   color: var(--gold-pure);
+}
+
+.custom-video-player.playing .video-overlay {
+  background: transparent;
+}
+
+.custom-video-player.playing .video-poster {
+  opacity: 0;
+}
+
+.custom-video-player.playing .play-button {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.55);
+  pointer-events: none;
 }
 
 video {

@@ -396,83 +396,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ── Custom Video Player Lazy Load ── */
+  /* ── Vimeo Player Integration ── */
   document.querySelectorAll(".custom-video-player").forEach((player) => {
+    const iframe = player.querySelector("iframe");
     const overlay = player.querySelector(".video-overlay");
 
-    // Preferir o src declarado em data-src, pois ele representa o arquivo correto de depoimento
-    const dataSrc = player.dataset.src ? player.dataset.src.trim() : "";
-    const nestedSourceEl = player.querySelector("video source");
-    const nestedSrc = nestedSourceEl ? nestedSourceEl.getAttribute("src") : "";
+    if (!iframe || !overlay || typeof Vimeo === "undefined") return;
 
-    // Se houver qualquer fonte (data-src ou nested src), habilitar o clique
-    if (overlay && (dataSrc || nestedSrc)) {
-      overlay.addEventListener("click", () => {
-        // Priorizar data-src para garantir os vídeos exatos da seção
-        const src = dataSrc || nestedSrc;
-        const safeSrc = encodeURI(src);
+    const vimeoPlayer = new Vimeo.Player(iframe);
 
-        const isGoogleDrive =
-          src &&
-          (src.includes("drive.google.com") || src.includes("docs.google.com"));
+    const setPlayingState = (isPlaying) => {
+      player.classList.toggle("playing", isPlaying);
+      overlay.setAttribute(
+        "aria-label",
+        isPlaying ? "Pausar vídeo" : "Reproduzir vídeo",
+      );
+    };
 
-        if (isGoogleDrive) {
-          // Extrair ID do arquivo (diversos formatos possíveis)
-          let fileId = "";
-          if (src.includes("id=")) {
-            fileId = src.split("id=")[1].split("&")[0];
-          } else if (src.includes("/d/")) {
-            fileId = src.split("/d/")[1].split("/")[0];
-          } else {
-            // tentativa genérica
-            const m = src.match(/[-_0-9A-Za-z]{20,}/);
-            if (m) fileId = m[0];
-          }
-
-          // Se não encontrarmos ID, tentar usar o src direto como iframe src
-          const iframe = document.createElement("iframe");
-          iframe.src = fileId
-            ? `https://drive.google.com/file/d/${fileId}/preview`
-            : safeSrc;
-          iframe.style.width = "100%";
-          iframe.style.height = "100%";
-          iframe.style.border = "none";
-          iframe.style.borderRadius = "16px";
-          iframe.style.display = "block";
-          iframe.setAttribute(
-            "allow",
-            "autoplay; encrypted-media; fullscreen; picture-in-picture",
-          );
-          iframe.setAttribute("allowfullscreen", "");
-          iframe.setAttribute("title", "Vídeo Depoimento");
-
-          player.innerHTML = "";
-          player.appendChild(iframe);
+    const togglePlayback = async () => {
+      try {
+        const paused = await vimeoPlayer.getPaused();
+        if (paused) {
+          await vimeoPlayer.play();
         } else {
-          // Para vídeos locais ou URLs diretas, criar <video> com <source>
-          const video = document.createElement("video");
-          video.controls = true;
-          video.autoplay = true;
-          video.playsInline = true;
-          video.crossOrigin = "anonymous";
-          video.preload = "auto";
-
-          const source = document.createElement("source");
-          source.src = safeSrc;
-          source.type = "video/mp4";
-          video.appendChild(source);
-
-          player.innerHTML = "";
-          player.appendChild(video);
-          // tentar tocar, ignorar rejeição por autoplay
-          video.play().catch(() => {});
+          await vimeoPlayer.pause();
         }
-      });
+      } catch (error) {
+        console.error("Erro ao controlar Vimeo:", error);
+      }
+    };
 
-      overlay.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") overlay.click();
-      });
-    }
+    overlay.addEventListener("click", (event) => {
+      event.preventDefault();
+      togglePlayback();
+    });
+
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        togglePlayback();
+      }
+    });
+
+    vimeoPlayer.on("play", () => setPlayingState(true));
+    vimeoPlayer.on("pause", () => setPlayingState(false));
+    vimeoPlayer.on("ended", () => setPlayingState(false));
+
+    vimeoPlayer
+      .ready()
+      .then(() => vimeoPlayer.getPaused())
+      .then((paused) => setPlayingState(!paused))
+      .catch(() => setPlayingState(false));
   });
 
   /* ── Counters ── */
