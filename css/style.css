@@ -1406,7 +1406,9 @@ video {
     justify-content: flex-start;
     align-items: center;
     padding: 8rem 2.5rem 3rem;
-    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s step-end;
+    transition:
+      right 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.6s step-end;
     z-index: 1000;
     counter-reset: menu-counter;
     overflow-y: auto;
@@ -1417,7 +1419,9 @@ video {
     right: 0;
     visibility: visible;
     pointer-events: auto;
-    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s step-start;
+    transition:
+      right 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s step-start;
   }
   .nav-links {
     flex-direction: column;
@@ -2136,10 +2140,11 @@ video {
   }
 
   .custom-video-player-study {
-    min-height: auto;
+    min-height: 100%;
     max-width: 100%;
+    width: 350px;
     aspect-ratio: 16 / 9;
-    height: auto;
+    height: 400px;
   }
 
   .case-study-wrapper {
