@@ -2142,7 +2142,7 @@ video {
   .custom-video-player-study {
     min-height: 100%;
     max-width: 100%;
-    width: 350px;
+    width: 320px;
     aspect-ratio: 16 / 9;
     height: 400px;
   }
